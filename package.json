@@ -1,0 +1,43 @@
+{
+  "name": "musicaly",
+  "version": "1.0.0",
+  "description": "Musicaly - Aplicativo de música gratuito estilo Spotify",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder --win",
+    "pack": "electron-builder --dir"
+  },
+  "author": "Musicaly",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^42.0.1",
+    "electron-builder": "^26.8.1"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0",
+    "electron-store": "8.1.0",
+    "youtubei.js": "^17.0.1"
+  },
+  "build": {
+    "appId": "com.musicaly.app",
+    "productName": "Musicaly",
+    "win": {
+      "target": "nsis",
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "package.json"
+    ]
+  }
+}
